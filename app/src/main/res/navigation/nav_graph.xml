@@ -3,6 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-   >
+    app:startDestination="@id/registerFragment">
 
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="ke.co.appslab.playslistshare.ui.views.fragments.UsersFragment"
+        android:label="UsersFragment"
+        tools:layout="@layout/fragment_users"/>
+    <fragment
+        android:id="@+id/playlistFragment"
+        android:name="ke.co.appslab.playslistshare.ui.views.fragments.PlaylistFragment"
+        android:label="PlaylistFragment"
+        tools:layout="@layout/fragment_playlist"/>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="ke.co.appslab.playslistshare.ui.views.fragments.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_usersFragment2"
+            app:destination="@id/usersFragment" />
+    </fragment>
 </navigation>

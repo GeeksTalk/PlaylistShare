@@ -1,11 +1,15 @@
 package ke.co.appslab.playslistshare.database
 
 import android.content.Context
+import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import ke.co.appslab.playslistshare.database.dao.PlaylistDao
 import ke.co.appslab.playslistshare.database.dao.UserDao
+import ke.co.appslab.playslistshare.models.Playlist
+import ke.co.appslab.playslistshare.models.User
 
+@Database(entities = [Playlist::class, User::class], exportSchema = false, version = 1)
 abstract class AppDatabase : RoomDatabase() {
     companion object {
         @Volatile
