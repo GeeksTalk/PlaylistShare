@@ -9,4 +9,16 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_link">Link</string>
+    <string name="text_single">Single</string>
+    <string name="text_album">Album</string>
+    <string name="text_mix">Mix</string>
+    <string name="text_share_playlist">Share Playlist</string>
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_email">Email</string>
+    <string name="text_register">Register</string>
+    <string name="title_playlist">Playlists</string>
+    <string name="title_users">Users</string>
+    <string name="title_settings">Settings</string>
 </resources>
