@@ -11,6 +11,8 @@ import ke.co.appslab.playslistshare.R
 import ke.co.appslab.playslistshare.models.User
 import ke.co.appslab.playslistshare.ui.adapters.UserAdapter
 import ke.co.appslab.playslistshare.ui.viewmodels.UserViewModel
+import ke.co.appslab.playslistshare.utils.hide
+import ke.co.appslab.playslistshare.utils.show
 import kotlinx.android.synthetic.main.fragment_users.*
 
 class UsersFragment : Fragment(R.layout.fragment_users) {
@@ -19,12 +21,24 @@ class UsersFragment : Fragment(R.layout.fragment_users) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        fabRegisterUser.setOnClickListener {
+            findNavController().navigate(R.id.action_usersFragment_to_registerFragment)
+        }
+
         fetchUsers()
     }
 
     private fun fetchUsers() {
         userViewModel.users.observe(viewLifecycleOwner, Observer { users ->
-            initView(users)
+            if (users.isEmpty()) {
+                tvEmptyText.show()
+                rvUsers.hide()
+            } else {
+                tvEmptyText.hide()
+                rvUsers.show()
+                initView(users)
+            }
+
         })
     }
 

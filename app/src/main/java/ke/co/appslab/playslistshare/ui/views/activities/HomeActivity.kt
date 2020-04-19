@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import ke.co.appslab.playslistshare.R
 
@@ -29,6 +30,7 @@ class HomeActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
         val navController = navHostFragment.findNavController()
         bottomNavigation.setupWithNavController(navController = navController)
+        setupActionBarWithNavController(navController)
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             if (destination.id == R.id.registerFragment) {
                 bottomNavigation.visibility = View.GONE

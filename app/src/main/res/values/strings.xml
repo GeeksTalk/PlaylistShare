@@ -25,4 +25,6 @@
     <string name="text_playlist_name">Dj Blighty</string>
     <string name="text_no_users">No users</string>
     <string name="text_no_playlist">No Playlists found</string>
+    <string name="error_playlist_name_required">Playlist name required</string>
+    <string name="error_playlist_link_required">Playlist link required</string>
 </resources>

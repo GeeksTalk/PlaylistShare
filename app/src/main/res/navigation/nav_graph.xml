@@ -3,25 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/registerFragment">
+    app:startDestination="@id/playlistFragment">
 
     <fragment
         android:id="@+id/usersFragment"
         android:name="ke.co.appslab.playslistshare.ui.views.fragments.UsersFragment"
-        android:label="UsersFragment"
-        tools:layout="@layout/fragment_users"/>
+        android:label="Users"
+        tools:layout="@layout/fragment_users">
+        <action
+            android:id="@+id/action_usersFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/playlistFragment"
         android:name="ke.co.appslab.playslistshare.ui.views.fragments.PlaylistFragment"
-        android:label="PlaylistFragment"
-        tools:layout="@layout/fragment_playlist"/>
+        android:label="Playlist"
+        tools:layout="@layout/fragment_playlist">
+        <action
+            android:id="@+id/action_playlistFragment_to_newPlaylistFragment"
+            app:destination="@id/newPlaylistFragment" />
+    </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="ke.co.appslab.playslistshare.ui.views.fragments.RegisterFragment"
-        android:label="RegisterFragment"
+        android:label="Register"
         tools:layout="@layout/fragment_register">
         <action
-            android:id="@+id/action_registerFragment_to_usersFragment2"
+            android:id="@+id/action_registerFragment_to_usersFragment"
             app:destination="@id/usersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="ke.co.appslab.playslistshare.ui.views.fragments.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings"/>
+    <fragment
+        android:id="@+id/newPlaylistFragment"
+        android:name="ke.co.appslab.playslistshare.ui.views.fragments.NewPlaylistFragment"
+        android:label="New Playlist"
+        tools:layout="@layout/fragment_new_playslist">
+        <action
+            android:id="@+id/action_newPlaylistFragment_to_playlistFragment"
+            app:destination="@id/playlistFragment" />
     </fragment>
 </navigation>

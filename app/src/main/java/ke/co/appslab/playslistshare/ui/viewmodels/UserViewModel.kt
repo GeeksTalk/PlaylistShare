@@ -8,7 +8,7 @@ import ke.co.appslab.playslistshare.repositories.UserRepoImpl
 import kotlinx.coroutines.launch
 
 class UserViewModel(application: Application) : AndroidViewModel(application) {
-    val userRepo: UserRepo = UserRepoImpl(application)
+    private val userRepo: UserRepo = UserRepoImpl(application)
     val users = userRepo.getAllUsers()
 
 

@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import ke.co.appslab.playslistshare.R
 import ke.co.appslab.playslistshare.models.User
 import ke.co.appslab.playslistshare.ui.viewmodels.UserViewModel
+import ke.co.appslab.playslistshare.utils.toast
 import kotlinx.android.synthetic.main.fragment_register.*
 
 class RegisterFragment : Fragment(R.layout.fragment_register) {
@@ -31,7 +32,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             email
         )
         userViewModel.registerUser(user)
-        Toast.makeText(requireContext(), "Successfully Registered", Toast.LENGTH_SHORT).show()
-        findNavController().navigate(R.id.action_registerFragment_to_usersFragment2)
+        requireActivity().toast("Successfully Registered")
+        findNavController().navigate(R.id.action_registerFragment_to_usersFragment)
     }
 }
