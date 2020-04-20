@@ -13,7 +13,6 @@ fun View.show(): View {
     }
     return this
 }
-
 fun View.hide(): View {
     if (visibility != View.GONE) {
         visibility = View.GONE
