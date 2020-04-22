@@ -4,10 +4,10 @@ import androidx.room.Embedded
 import androidx.room.Relation
 
 data class PlaylistAndUser(
-    @Embedded val user: User,
+    @Embedded val playlist: Playlist,
     @Relation(
-        parentColumn = "id",
-        entityColumn = "userId"
+        parentColumn = "userId",
+        entityColumn = "id"
     )
-    val playlist: Playlist
+    val user: User
 )

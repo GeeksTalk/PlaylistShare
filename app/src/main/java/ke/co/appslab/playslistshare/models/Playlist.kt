@@ -11,6 +11,6 @@ data class Playlist(
     val playlistName: String,
     val playlistLink: String,
     val playlistType: String,
-    val userId: String
+    val userId: Int
 
 )

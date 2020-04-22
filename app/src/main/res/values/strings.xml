@@ -35,4 +35,8 @@
     <string name="error_song_name_required">Song name is required</string>
     <string name="error_artist_name">Artist name is required</string>
     <string name="text_song_name">Kamikaze</string>
+    <string name="text_user_playlist">Here\'s what this user has shared</string>
+    <string name="text_playlist_desc">Here\'s who shared the playlist</string>
+    <string name="text_select_owner">Select playlist owner</string>
+    <string name="text_select_songs">Select songs in this album</string>
 </resources>
