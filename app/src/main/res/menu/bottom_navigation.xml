@@ -10,6 +10,11 @@
         android:icon="@drawable/ic_round_supervisor_account_24"/>
 
     <item
+        android:id="@+id/songsFragment"
+        android:title="@string/title_songs"
+        android:icon="@drawable/ic_round_settings_24"/>
+
+    <item
         android:id="@+id/settingsFragment"
         android:title="@string/title_settings"
         android:icon="@drawable/ic_round_settings_24"/>

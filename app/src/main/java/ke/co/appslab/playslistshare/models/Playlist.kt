@@ -10,6 +10,7 @@ data class Playlist(
     val playlistId: Int,
     val playlistName: String,
     val playlistLink: String,
-    val playlistType: String
+    val playlistType: String,
+    val userId: String
 
 )

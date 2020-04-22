@@ -46,4 +46,22 @@
             android:id="@+id/action_newPlaylistFragment_to_playlistFragment"
             app:destination="@id/playlistFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/songsFragment"
+        android:name="ke.co.appslab.playslistshare.ui.views.fragments.SongsFragment"
+        android:label="Songs"
+        tools:layout="@layout/fragment_songs">
+        <action
+            android:id="@+id/action_songsFragment_to_newSongFragment"
+            app:destination="@id/newSongFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newSongFragment"
+        android:name="ke.co.appslab.playslistshare.ui.views.fragments.NewSongFragment"
+        android:label="New Song"
+        tools:layout="@layout/fragment_new_song">
+        <action
+            android:id="@+id/action_newSongFragment_to_songsFragment"
+            app:destination="@id/songsFragment" />
+    </fragment>
 </navigation>

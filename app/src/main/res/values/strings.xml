@@ -27,4 +27,12 @@
     <string name="text_no_playlist">No Playlists found</string>
     <string name="error_playlist_name_required">Playlist name required</string>
     <string name="error_playlist_link_required">Playlist link required</string>
+    <string name="title_songs">Songs</string>
+    <string name="text_no_songs">No songs found</string>
+    <string name="hint_song_name">Song Name</string>
+    <string name="text_save_song">Save Song</string>
+    <string name="hint_artist_name">Artsist Name</string>
+    <string name="error_song_name_required">Song name is required</string>
+    <string name="error_artist_name">Artist name is required</string>
+    <string name="text_song_name">Kamikaze</string>
 </resources>
