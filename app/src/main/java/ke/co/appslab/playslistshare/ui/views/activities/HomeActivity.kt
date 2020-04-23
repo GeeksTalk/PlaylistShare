@@ -6,11 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import ke.co.appslab.playslistshare.R
+import ke.co.appslab.playslistshare.utils.hide
+import ke.co.appslab.playslistshare.utils.show
 
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.content_home.*
@@ -32,10 +35,14 @@ class HomeActivity : AppCompatActivity() {
         bottomNavigation.setupWithNavController(navController = navController)
         setupActionBarWithNavController(navController)
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            if (destination.id == R.id.registerFragment) {
-                bottomNavigation.visibility = View.GONE
-            } else {
-                bottomNavigation.visibility = View.VISIBLE
+            when (destination.id) {
+                R.id.registerFragment, R.id.playlistDetailsFragment, R.id.songDetailsFragment
+                    , R.id.userDetailsFragment, R.id.newPlaylistFragment, R.id.newSongFragment -> {
+                    bottomNavigation.hide()
+                }
+                else -> {
+                    bottomNavigation.show()
+                }
             }
         }
 
@@ -53,6 +60,9 @@ class HomeActivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> true
+            android.R.id.home -> {
+                Navigation.findNavController(this, R.id.navHostFragment).navigateUp()
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

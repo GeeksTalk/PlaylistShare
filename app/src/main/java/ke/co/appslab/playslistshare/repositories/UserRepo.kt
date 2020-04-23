@@ -10,7 +10,7 @@ import ke.co.appslab.playslistshare.models.UserAndPlaylists
 interface UserRepo {
     suspend fun registerUser(user: User)
     fun getAllUsers(): LiveData<List<User>>
-    fun getUserPlaylists(userId: Int): LiveData<List<UserAndPlaylists>>
+    fun getUserPlaylists(userId: Long): LiveData<List<UserAndPlaylists>>
 }
 
 class UserRepoImpl(application: Application) : UserRepo {
@@ -26,7 +26,7 @@ class UserRepoImpl(application: Application) : UserRepo {
         return userDao.getAllUsers()
     }
 
-    override fun getUserPlaylists(userId: Int): LiveData<List<UserAndPlaylists>> {
+    override fun getUserPlaylists(userId: Long): LiveData<List<UserAndPlaylists>> {
         return userDao.getUserPlaylists(userId)
     }
 

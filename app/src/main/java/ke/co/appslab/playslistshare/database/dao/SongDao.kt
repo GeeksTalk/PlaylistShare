@@ -5,7 +5,9 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
+import androidx.room.Transaction
 import ke.co.appslab.playslistshare.models.Song
+import ke.co.appslab.playslistshare.models.SongsAndPlaylist
 
 @Dao
 interface SongDao {
@@ -15,4 +17,8 @@ interface SongDao {
 
     @Query("SELECT * FROM Songs")
     fun fetchAllSongs(): LiveData<List<Song>>
+
+    @Transaction
+    @Query("SELECT * FROM Songs WHERE songId = :songId")
+    fun fetchSongsAndPlaylist(songId: Long): LiveData<List<SongsAndPlaylist>>
 }

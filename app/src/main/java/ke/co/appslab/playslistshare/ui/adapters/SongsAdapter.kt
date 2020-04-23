@@ -21,6 +21,9 @@ class SongsAdapter(private val songs: List<Song>, private val songsListener: son
         fun bindSong(song: Song) {
             with(song) {
                 tvSongName.text = songName
+                itemView.setOnClickListener {
+                    songsListener(this)
+                }
             }
         }
 

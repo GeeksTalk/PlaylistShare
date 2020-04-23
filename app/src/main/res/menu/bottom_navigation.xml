@@ -12,7 +12,7 @@
     <item
         android:id="@+id/songsFragment"
         android:title="@string/title_songs"
-        android:icon="@drawable/ic_round_settings_24"/>
+        android:icon="@drawable/ic_baseline_audiotrack_24"/>
 
     <item
         android:id="@+id/settingsFragment"

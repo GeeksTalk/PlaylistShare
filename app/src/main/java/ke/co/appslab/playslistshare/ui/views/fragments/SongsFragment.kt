@@ -41,7 +41,9 @@ class SongsFragment : Fragment(R.layout.fragment_songs) {
     }
 
     private fun initView(songs: List<Song>) {
-        val songsAdapter = SongsAdapter(songs){
+        val songsAdapter = SongsAdapter(songs) { song ->
+            val actionSong = SongsFragmentDirections.actionSongsFragmentToSongDetailsFragment(song)
+            findNavController().navigate(actionSong)
 
         }
         rvSongs.adapter = songsAdapter

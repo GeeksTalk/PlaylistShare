@@ -1,12 +1,11 @@
 package ke.co.appslab.playslistshare.ui.viewmodels
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import ke.co.appslab.playslistshare.models.Playlist
+import ke.co.appslab.playslistshare.models.PlaylistAndSongs
 import ke.co.appslab.playslistshare.models.PlaylistAndUser
+import ke.co.appslab.playslistshare.models.PlaylistSongsCrossRef
 import ke.co.appslab.playslistshare.repositories.PlaylistRepoImpl
 import ke.co.appslab.playslistshare.repositories.SongsRepoImpl
 import ke.co.appslab.playslistshare.repositories.UserRepoImpl
@@ -19,14 +18,26 @@ class PlaylistViewModel(application: Application) : AndroidViewModel(application
     val playlists = playlistRepo.fetchPlaylists()
     val users = userRepo.getAllUsers()
     val songs = songsRepo.fetchAllSongs()
+    private val playlistId = MutableLiveData<Long>()
 
-    fun savePlaylist(playlist: Playlist) {
+    fun savePlaylist(playlist: Playlist): MutableLiveData<Long> {
         viewModelScope.launch {
-            playlistRepo.savePlaylist(playlist)
+            playlistId.value = playlistRepo.savePlaylist(playlist)
+        }
+        return playlistId
+    }
+
+    fun getPlaylistUsers(playlistId: Long): LiveData<List<PlaylistAndUser>> {
+        return playlistRepo.getPlaylistUser(playlistId)
+    }
+
+    fun savePlaylistSongs(playlistSongsCrossRef: PlaylistSongsCrossRef) {
+        viewModelScope.launch {
+            playlistRepo.savePlaylistSongs(playlistSongsCrossRef)
         }
     }
 
-    fun getPlaylistUsers(playlistId: Int): LiveData<List<PlaylistAndUser>> {
-        return playlistRepo.getPlaylistUser(playlistId)
+    fun getSongsInPlaylists(playlistId: Long): LiveData<List<PlaylistAndSongs>> {
+        return playlistRepo.fetchPlaylistAndSongs(playlistId)
     }
 }

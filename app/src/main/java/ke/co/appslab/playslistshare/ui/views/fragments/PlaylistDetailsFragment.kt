@@ -8,8 +8,10 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import ke.co.appslab.playslistshare.R
 import ke.co.appslab.playslistshare.models.Playlist
+import ke.co.appslab.playslistshare.models.PlaylistAndSongs
 import ke.co.appslab.playslistshare.models.PlaylistAndUser
 import ke.co.appslab.playslistshare.models.User
+import ke.co.appslab.playslistshare.ui.adapters.SongsAdapter
 import ke.co.appslab.playslistshare.ui.adapters.UserAdapter
 import ke.co.appslab.playslistshare.ui.viewmodels.PlaylistViewModel
 import kotlinx.android.synthetic.main.fragment_playlist_details.*
@@ -25,6 +27,24 @@ class PlaylistDetailsFragment : Fragment(R.layout.fragment_playlist_details) {
         super.onViewCreated(view, savedInstanceState)
 
         getPlaylistUser()
+        getSongsInPlayList()
+    }
+
+    private fun getSongsInPlayList() {
+        playlistViewModel.getSongsInPlaylists(playlist.playlistId).observe(
+            viewLifecycleOwner,
+            Observer { playlistAndSongs ->
+                if (playlistAndSongs.isNotEmpty()) {
+                    showSongsInPlaylist(playlistAndSongs)
+                }
+            })
+    }
+
+    private fun showSongsInPlaylist(playlistAndSongs: List<PlaylistAndSongs>) {
+        val adapter = SongsAdapter(playlistAndSongs[0].songs){
+
+        }
+        rvSongPlaylist.adapter = adapter
     }
 
     private fun getPlaylistUser() {

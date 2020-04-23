@@ -9,10 +9,15 @@ import ke.co.appslab.playslistshare.database.dao.PlaylistDao
 import ke.co.appslab.playslistshare.database.dao.SongDao
 import ke.co.appslab.playslistshare.database.dao.UserDao
 import ke.co.appslab.playslistshare.models.Playlist
+import ke.co.appslab.playslistshare.models.PlaylistSongsCrossRef
 import ke.co.appslab.playslistshare.models.Song
 import ke.co.appslab.playslistshare.models.User
 
-@Database(entities = [Playlist::class, User::class, Song::class], exportSchema = false, version = 1)
+@Database(
+    entities = [Playlist::class, User::class, Song::class, PlaylistSongsCrossRef::class],
+    exportSchema = false,
+    version = 1
+)
 abstract class AppDatabase : RoomDatabase() {
     companion object {
         @Volatile

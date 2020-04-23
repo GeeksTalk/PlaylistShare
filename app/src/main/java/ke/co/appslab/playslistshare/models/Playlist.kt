@@ -10,10 +10,10 @@ import java.util.*
 @Parcelize
 data class Playlist(
     @PrimaryKey(autoGenerate = true)
-    val playlistId: Int,
+    val playlistId: Long,
     val playlistName: String,
     val playlistLink: String,
     val playlistType: String,
-    val userId: Int
+    val userId: Long
 
 ) : Parcelable

@@ -19,7 +19,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun getUserPlaylists(userId: Int): LiveData<List<UserAndPlaylists>> {
+    fun getUserPlaylists(userId: Long): LiveData<List<UserAndPlaylists>> {
         return userRepo.getUserPlaylists(userId)
     }
 }

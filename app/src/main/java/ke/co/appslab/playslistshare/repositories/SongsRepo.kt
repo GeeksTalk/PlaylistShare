@@ -5,10 +5,12 @@ import androidx.lifecycle.LiveData
 import ke.co.appslab.playslistshare.database.AppDatabase
 import ke.co.appslab.playslistshare.database.dao.SongDao
 import ke.co.appslab.playslistshare.models.Song
+import ke.co.appslab.playslistshare.models.SongsAndPlaylist
 
 interface SongsRepo {
     suspend fun insertSong(song: Song)
     fun fetchAllSongs(): LiveData<List<Song>>
+    fun fetchSongsAndPlaylist(songId: Long): LiveData<List<SongsAndPlaylist>>
 }
 
 class SongsRepoImpl(application: Application) : SongsRepo {
@@ -22,6 +24,10 @@ class SongsRepoImpl(application: Application) : SongsRepo {
 
     override fun fetchAllSongs(): LiveData<List<Song>> {
         return songDao.fetchAllSongs()
+    }
+
+    override fun fetchSongsAndPlaylist(songId: Long): LiveData<List<SongsAndPlaylist>> {
+        return songDao.fetchSongsAndPlaylist(songId)
     }
 
 }

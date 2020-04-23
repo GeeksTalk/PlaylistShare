@@ -17,6 +17,6 @@ interface UserDao {
 
     @Transaction
     @Query("SELECT * FROM User WHERE id = :userId")
-    fun getUserPlaylists(userId: Int): LiveData<List<UserAndPlaylists>>
+    fun getUserPlaylists(userId: Long): LiveData<List<UserAndPlaylists>>
 
 }

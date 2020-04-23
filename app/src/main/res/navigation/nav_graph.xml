@@ -60,6 +60,9 @@
         <action
             android:id="@+id/action_songsFragment_to_newSongFragment"
             app:destination="@id/newSongFragment" />
+        <action
+            android:id="@+id/action_songsFragment_to_songDetailsFragment"
+            app:destination="@id/songDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/newSongFragment"
@@ -87,5 +90,14 @@
         <argument
             android:name="user"
             app:argType="ke.co.appslab.playslistshare.models.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/songDetailsFragment"
+        android:name="ke.co.appslab.playslistshare.ui.views.fragments.SongDetailsFragment"
+        android:label="Song Details"
+        tools:layout="@layout/fragment_song_details">
+        <argument
+            android:name="song"
+            app:argType="ke.co.appslab.playslistshare.models.Song" />
     </fragment>
 </navigation>

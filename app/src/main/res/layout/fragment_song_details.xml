@@ -8,26 +8,25 @@
     android:background="@color/colorBackground">
 
     <TextView
-        android:id="@+id/tvUserDesc"
+        android:id="@+id/tvPlaylistSongDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/text_user_playlist"
-        android:textSize="16sp"
+        android:text="@string/text_playlist_song_desc"
         android:textColor="@android:color/black"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvUserPlaylist"
+        android:id="@+id/rvSongPlaylist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/fab_margin"
-        tools:listitem="@layout/item_playlist"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/tvUserDesc"
+        tools:listitem="@layout/item_playlist"
+        tools:itemCount="1"
+        app:layout_constraintTop_toBottomOf="@id/tvPlaylistSongDesc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

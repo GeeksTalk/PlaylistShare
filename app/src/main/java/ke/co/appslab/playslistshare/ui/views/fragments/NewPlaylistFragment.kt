@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
 import ke.co.appslab.playslistshare.R
 import ke.co.appslab.playslistshare.models.Playlist
+import ke.co.appslab.playslistshare.models.PlaylistSongsCrossRef
 import ke.co.appslab.playslistshare.models.Song
 import ke.co.appslab.playslistshare.models.User
 import ke.co.appslab.playslistshare.ui.viewmodels.PlaylistViewModel
@@ -25,7 +26,7 @@ class NewPlaylistFragment : Fragment(R.layout.fragment_new_playslist) {
     lateinit var playlistType: String
     private val playlistViewModel: PlaylistViewModel by viewModels()
     private var songs = emptyList<Song>()
-    private var userId: Int = 0
+    private var userId: Long = 0L
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -78,8 +79,15 @@ class NewPlaylistFragment : Fragment(R.layout.fragment_new_playslist) {
         if (validateInputs(playlistName, playlistLink)) {
             val playlist = Playlist(0, playlistName, playlistLink, playlistType, userId)
             playlistViewModel.savePlaylist(playlist)
-            requireContext().toast("Playlist Shared")
-            findNavController().navigate(R.id.action_newPlaylistFragment_to_playlistFragment)
+                .observe(viewLifecycleOwner, Observer { playlistId ->
+                    chipGroupSongs.checkedChipIds.forEach { songId ->
+                        val playlistCrossRef = PlaylistSongsCrossRef(playlistId, songId.toLong())
+                        playlistViewModel.savePlaylistSongs(playlistCrossRef)
+
+                    }
+                    requireContext().toast("Playlist Shared")
+                    findNavController().navigate(R.id.action_newPlaylistFragment_to_playlistFragment)
+                })
         }
     }
 

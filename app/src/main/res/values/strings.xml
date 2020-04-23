@@ -39,4 +39,6 @@
     <string name="text_playlist_desc">Here\'s who shared the playlist</string>
     <string name="text_select_owner">Select playlist owner</string>
     <string name="text_select_songs">Select songs in this album</string>
+    <string name="text_playlist_song_desc">Here are the playlist this song belongs to</string>
+    <string name="text_song_playlist_desc">Here are the songs in the playlist</string>
 </resources>
