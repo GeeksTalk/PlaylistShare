@@ -35,8 +35,7 @@ class NewPlaylistFragment : Fragment(R.layout.fragment_new_playslist) {
         btnSharePlaylist.setOnClickListener {
             val playlistName = editPlaylistName.text.toString()
             val playlistLink = editPlaylistLink.text.toString()
-            getSelectedSongs()
-//            sharePlaylist(playlistName, playlistLink)
+            sharePlaylist(playlistName, playlistLink)
         }
         observeLivedata()
     }

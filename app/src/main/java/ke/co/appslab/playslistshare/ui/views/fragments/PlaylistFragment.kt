@@ -41,8 +41,10 @@ class PlaylistFragment : Fragment(R.layout.fragment_playlist) {
     }
 
     private fun initView(playlists: List<Playlist>) {
-        val playlistAdapter = PlaylistAdapter(playlists){
-
+        val playlistAdapter = PlaylistAdapter(playlists) { playlist ->
+            val actionPlaylist =
+                PlaylistFragmentDirections.actionPlaylistFragmentToPlaylistDetailsFragment(playlist)
+            findNavController().navigate(actionPlaylist)
         }
         rvPlaylist.adapter = playlistAdapter
     }

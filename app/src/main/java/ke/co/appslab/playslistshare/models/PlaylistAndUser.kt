@@ -9,5 +9,5 @@ data class PlaylistAndUser(
         parentColumn = "userId",
         entityColumn = "id"
     )
-    val user: User
+    val users: List<User>
 )

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_usersFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_usersFragment_to_userDetailsFragment"
+            app:destination="@id/userDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/playlistFragment"
@@ -22,6 +25,9 @@
         <action
             android:id="@+id/action_playlistFragment_to_newPlaylistFragment"
             app:destination="@id/newPlaylistFragment" />
+        <action
+            android:id="@+id/action_playlistFragment_to_playlistDetailsFragment"
+            app:destination="@id/playlistDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -63,5 +69,23 @@
         <action
             android:id="@+id/action_newSongFragment_to_songsFragment"
             app:destination="@id/songsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playlistDetailsFragment"
+        android:name="ke.co.appslab.playslistshare.ui.views.fragments.PlaylistDetailsFragment"
+        android:label="Playlist Details"
+        tools:layout="@layout/fragment_playlist_details">
+        <argument
+            android:name="playlist"
+            app:argType="ke.co.appslab.playslistshare.models.Playlist" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailsFragment"
+        android:name="ke.co.appslab.playslistshare.ui.views.fragments.UserDetailsFragment"
+        android:label="User Details"
+        tools:layout="@layout/fragment_user_details">
+        <argument
+            android:name="user"
+            app:argType="ke.co.appslab.playslistshare.models.User" />
     </fragment>
 </navigation>

@@ -43,8 +43,9 @@ class UsersFragment : Fragment(R.layout.fragment_users) {
     }
 
     private fun initView(users: List<User>) {
-        val userAdapter = UserAdapter(users) {
-
+        val userAdapter = UserAdapter(users) { user ->
+            val actionUser = UsersFragmentDirections.actionUsersFragmentToUserDetailsFragment(user)
+            findNavController().navigate(actionUser)
         }
         rvUsers.adapter = userAdapter
 
